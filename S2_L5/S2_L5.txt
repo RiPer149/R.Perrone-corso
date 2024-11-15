@@ -1,0 +1,49 @@
+1 import datetime
+2 def assistente_virtuale(comando):
+3     if comando == "Qual è la data di oggi?":
+4         oggi = datetime.datetoday()
+5         risposta = "La data di oggi è " + oggi.strftime("%d/%m/%Y")
+6     elif comando == "Che ore sono?":
+7         ora_attuale = datetime.datetime.now().time()
+8         risposta = "L'ora attuale è " + ora_attuale.strftime("%H%M")
+9     elif comando == "Come ti chiami?":
+10        risposta = "Mi chiamo Assistente Virtuale"
+11    else:
+12        risposta = "Non ho capito la tua domanda."
+13    return risposta
+14 while True
+15    comando_utente = input("Cosa vuoi sapere? ")
+16    if comando_utente.lower() == "esci":
+17        print("Arrivederci!")
+18        break
+
+
+Gli errori presenti sono: Riga 14 assenza dei due punti (:) dopo True; L'assenza di else nel
+ciclo while, Riga 4 la voce datetime.datetoday() deve essere corretta in datetime.date.today();
+Riga 8 il carattere  deve essere sostituito con i due punti (:).
+
+Per far funzionare in maniera corretta il programma ho apportato alcune modifiche in
+modo che potesse essere più efficiente per l'utente, dando degli input specifici da poter inserire
+in modo che non si abbiano dubbi sui comandi che si possono utilizzare.
+
+
+import datetime 
+
+x = input("Ciao, posso esserti utile? (si/no): ").lower()
+                                                                                             
+while x == "si":
+    comando = input("Cosa vorresti sapere? (data/ora/nome): ").lower()
+    if comando == "data":
+        oggi = datetime.date.today()
+        print(f"La data di oggi é: {oggi.strftime('%d/%m/%Y')}")
+    elif comando == "ora":
+        ora_attuale = datetime.datetime.now()                                                     
+        print(f"L'ora attuale è: {ora_attuale.strftime("%H:%M:%S")}")   
+    elif comando == "nome":
+        IV = "Assistente Virtuale"
+        print(f"Il mio nome è: {IV}")    
+    else:           
+        print("Non ho capito la tua domanda.")
+
+    x = input("Vuoi farmi un altra domanda? (si/no): ").lower()
+print("Arrivederci!")
