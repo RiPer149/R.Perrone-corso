@@ -1,0 +1,26 @@
+                          PESTUDIO
+INDICATORS: analisi indicatori, certificato scaduto, firma digitale sconosciuta o assente, 
+            overlay (signature > unknown) possibile manipolazione o aggiunta di dati non
+            standard, hash sha256 api virustotal (da controllare su virustotal), entry-point
+            anomalo 0x000030E4, debug assente (file compilato senza dettagli tecnici per l'analisi
+IMPORTS: API sospette
+RESOURCES: icon puo essere usata per imitare software ma non e particolarmente sospetta 
+           (risorsa con entropia elevata "instance1 43826 bytes)
+                         DIE (Detect It Easy)
+PACKERS: HeurPacker (file compresso)
+                         CFF Explorer
+DATA DIRECTORYES: security directory rva invalid (probabile firma manipolata)
+SECTION HEADERS: .rsrc alta entropia (possibile compressione o dati cifrati, potrebbe contenere un 
+                 payload nascosto)
+IMPORT DIRECTORY: ADVAPI32.dll e SHELL32.dll possono essere sfruttati per attività come la
+                  modifica del registro o interazione con i file system. La loro presenza e comune
+                  nei malware per attività di persistenza.
+                         BINWALK
+BINWALK -e: creazione directory con i file estratti
+                         FILE
+COMANDO file: identifica il tipo di file
+                         UNZIP e GUNZIP
+impossibile decomprimere
+                         STRINGS
+COMANDO strings: estrazione di stringhe leggibili alla ricerca di informazioni utili come URL,
+                 indirizzi IP co comandi
